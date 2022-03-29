@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+     <div class="top">
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo of SheduleDeck">
+        </div>
+         
+        <span class="line"></span>
+         
+        <section class="tabs"> 
+            <span>
+                <a href="">home</a>
+            </span>
+            <a href="">faq</a>
+            <a href="">support</a>
+        </section>
+
+     </div>
+
+     <div class="hero-bg">
+         <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+            <div class="social-icons">
+                <img src="images/fb.png">
+                <img src="images/tw.png">
+                <img src="images/gp.png">
+            </div>
+            
+            <form id="login" class="input-group">
+                <input type="text" class="input-field" placeholder="User Id" required>
+                <input type="text" class="input-field" placeholder="Enter Password" required>
+                <input type="checkbox" class="check-box"><span>Remember Password</span>
+                <button type="submit" class="submit-btn">Log In</button>
+            </form>
+
+            <form id="register" class="input-group">
+                <input type="text" class="input-field" placeholder="User Id" required>
+                <input type="text" class="input-field" placeholder="Email Id" required>
+                <input type="text" class="input-field" placeholder="Enter Password" required>
+                <input type="checkbox" class="check-box"><span>I agree to the terms & conditions</span>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+
+            
+        </div>
+  
+        <header><span>Welcome To</span>ScheduleDeck</header>
+     </div>
+
+     <div class="bottom">
+
+     </div>
+
+     <script>
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+        var z = document.getElementById("btn");
+
+        function register(){
+            x.style.left = "-30em";
+            y.style.left = "4em";
+            z.style.left = "14em";
+
+        }
+
+        function login(){
+            x.style.left = "6em";
+            y.style.left = "40em";
+            z.style.left = "0"; 
+        }
+     </script>
+</body>
+</html>

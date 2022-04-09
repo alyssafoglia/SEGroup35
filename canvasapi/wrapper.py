@@ -40,11 +40,11 @@ class apiwrapper:
         for i, assignment in enumerate(assignments):
             try:
                 current_assignment = assignments[i]
-                assignmentmonth = current_assignment.lock_at_date.timetuple().tm_mon
+                assignmentmonth = current_assignment.due_at_date.timetuple().tm_mon
                 if assignmentmonth >= currentmonth:
-                    assignmentday = current_assignment.lock_at_date.timetuple().tm_mday
+                    assignmentday = current_assignment.due_at_date.timetuple().tm_mday
                     if assignmentday >= currentday:
-                        user_assignments[assignment.name] = assignment.lock_at_date
+                        user_assignments[assignment.name] = assignment.due_at_date
             except:
                 continue
 

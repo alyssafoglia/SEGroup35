@@ -36,6 +36,7 @@ class apiwrapper:
 
     def getAssignments(self, course, currentmonth, currentday):
         assignments = course.get_assignments()
+        user_assignments = {}
         for i, assignment in enumerate(assignments):
             try:
                 current_assignment = assignments[i]
@@ -43,7 +44,7 @@ class apiwrapper:
                 if assignmentmonth >= currentmonth:
                     assignmentday = current_assignment.lock_at_date.timetuple().tm_mday
                     if assignmentday >= currentday:
-                        print(assignment.name, assignment.lock_at_date)
+                        user_assignments[assignment.name] = assignment.lock_at_date
             except:
                 continue
 

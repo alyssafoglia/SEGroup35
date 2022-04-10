@@ -23,7 +23,7 @@ body{
 .title header a{
     margin-top: -1.45em;
     float: left;
-    background: -webkit-linear-gradient(#ff105f, #ffad06);
+    background: linear-gradient(to right, #ff105f, #ffad06);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     padding-left: 1em;
@@ -38,7 +38,7 @@ body{
     font-weight: bold;
     float: right;
     border-radius: 0.5em;
-    background: -webkit-linear-gradient(#ff105f, #ffad06);
+    background: linear-gradient(to right, #ff105f, #ffad06);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

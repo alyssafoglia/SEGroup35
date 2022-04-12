@@ -1,0 +1,8 @@
+Opening Already Created Project
+
+Open Command Prompt
+
+	cd Documents\DjangoWebApps	(Or wherever you put DjangoWebApps)
+	django_env\Scripts\activate.bat
+	cd CEN3031Proj
+	py manage.py runserver

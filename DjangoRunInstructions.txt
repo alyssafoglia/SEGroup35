@@ -5,4 +5,5 @@ Open Command Prompt
 	cd Documents\DjangoWebApps	(Or wherever you put DjangoWebApps)
 	django_env\Scripts\activate.bat
 	cd CEN3031Proj
+	pip install canvasapi		(Only do this once)
 	py manage.py runserver

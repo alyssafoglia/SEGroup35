@@ -22,11 +22,12 @@ class apiwrapper:
 
     def getCourses(self):
         user_courses = {}
-        current_year = 2022
+        current_year = 2021
         courses = self.canvas.get_courses()
         for i, course in enumerate(courses):
             try:
                 current_course = courses[i]
+                #print(current_course.name, current_course.start_at_date.timetuple().tm_year)
                 course_year = current_course.start_at_date.timetuple().tm_year
                 if current_year <= course_year:
                     user_courses[current_course.name] = current_course
@@ -40,13 +41,24 @@ class apiwrapper:
         for i, assignment in enumerate(assignments):
             try:
                 current_assignment = assignments[i]
+                #print(current_assignment.name)
+                #print(current_assignment.due_at_date.timetuple().tm_mon)
+                assignmentyear = current_assignment.due_at_date.timetuple().tm_year
+                if assignmentyear < 2022:
+                    continue
                 assignmentmonth = current_assignment.due_at_date.timetuple().tm_mon
                 if assignmentmonth >= currentmonth:
+                    #print(current_assignment.due_at_date.timetuple().tm_mon)
                     assignmentday = current_assignment.due_at_date.timetuple().tm_mday
                     if assignmentday >= currentday:
-                        user_assignments[assignment.name] = assignment.due_at_date
+                        #print(current_assignment.due_at_date.timetuple().tm_mday)
+                        user_assignments[assignment.name] = current_assignment
+                        
             except:
                 continue
+        return user_assignments
+        
+
 
 
 

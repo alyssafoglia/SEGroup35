@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="../static/result.css">
+</head>
+<body>
+	<div class="top">
+        <div class="title">
+            <img src="/static/logo.png" alt="Logo of SheduleDeck">
+            <header>
+                <a href="../index">ScheduleDeck</a>
+            </header>
+            <a href="../projAbout">About</a>
+        </div>
+
+         
+        <span class="line"></span>
+		<br>
+     </div>
+	<center>
+		{% for i in course_data %}
+			{% for item in i %}
+				{% if forloop.counter == 1 %}
+				<div style="background-color:navy;color:white;padding:20px;">
+					<h1 style = "color:white;">{{item}}</h1>
+				{% else %}
+					<h3>{{item}}</h3>
+				{% endif %}
+				</div>
+				
+			{% endfor %}
+		{% endfor %}
+	</center>
+</body>
+</html>

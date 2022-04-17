@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="../static/index.css">
+</head>
+<body>
+	<div class="top">
+        <div class="title">
+            <img src="../static/logo.png" alt="Logo of SheduleDeck">
+            <header>
+                <a href="../static/index.css">ScheduleDeck</a>
+            </header>
+            <a href="../projAbout">About</a>
+        </div>
+
+         
+        <span class="line"></span>
+		<br> 
+     </div>
+	<center>
+		<p> <strong> <span Style="color:Red" > Red </span> text is first priority, meaning the assignment is due within the next three days. </strong></p>
+		<p> <strong> <span Style="color:rgb(255, 213, 0)" > Yellow </span> text is second priority, meaning the assignment is due within the next week. </strong></p>
+		<p> <strong> <span Style="color:green" > Green </span> text is third priority, meaning the assignment is due within the next two weeks. </strong></p>
+		
+		<br>
+		<span class="line"></span>
+		<br> 
+			
+		
+		{% for i in course_data %}
+			{% for item in i %}
+				{% if forloop.counter == 1 %} 
+				<div style="background-color:rgb(10, 104, 138);color:white;padding:20px;">
+					<h1 style = "color:white;">{{item}}</h1>
+				{% else %}
+					
+					<h3> {{item}}</h3>
+				
+				{% endif %}
+				</div>
+				
+			{% endfor %}
+		{% endfor %}
+	</center>
+</body>
+</html>

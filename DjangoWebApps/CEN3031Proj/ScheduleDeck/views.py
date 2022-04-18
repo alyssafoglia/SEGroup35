@@ -1,8 +1,10 @@
+from cProfile import label
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from wrapper import apiwrapper
 from array import *
+import datetime
 
 def projAbout(request):
 	return render(request, 'ScheduleDeck/projAbout.html')
@@ -28,12 +30,14 @@ def simple_function(request):
 	my_courses = canvas.getCourses()
 	
 	course_data = []
-	
+	dueDates = [] 
 
 	for i, course in enumerate(my_courses):
 		my_assignments=[]
-		my_assignments = canvas.getAssignments(my_courses[course], 4, 14)
+		
+		my_assignments, dates = canvas.getAssignments(my_courses[course], 4, 14)
 		current_course_data = []
+		dueDates= dueDates + dates
 		
 		if len(my_assignments) == 0:
 		#if not my_assignments:
@@ -52,8 +56,21 @@ def simple_function(request):
 		#list2=canvas.getDate(current_course_data)
 		#course_data[current_course_data]=list2
 		
+		
+	labelsPriority = []
+	for i in range(len(dueDates)):
+		daysFrom = dueDates[i]-14
+		if daysFrom < 4:
+			labelsPriority.append("red")
+		elif daysFrom < 8:
+			labelsPriority.append("yellow")		
+		else: 
+			labelsPriority.append("green")
 
-	return render(request, 'ScheduleDeck/result.html', {"course_data": course_data})
+	print(dueDates, labelsPriority)
+
+
+	return render(request, 'ScheduleDeck/result.html', {"course_data": course_data, "dueDates": dueDates})
 
 def result(request):
 	return render(request, 'ScheduleDeck/result.html')

@@ -30,7 +30,7 @@
 		<br> 
 			
 		
-		{% for i in course_data %}
+		{% for i in range(len(course_data)) %}
 			{% for item in i %}
 				{% if forloop.counter == 1 %} 
 				<div style="background-color:rgb(10, 104, 138);color:white;padding:20px;">
